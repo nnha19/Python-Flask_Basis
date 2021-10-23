@@ -1,0 +1,27 @@
+{% extends "base.html" %} {%block title %} Hello World {% endblock%} {%block
+body %}
+<h1>Task Master</h1>
+<div class="content">
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Added</th>
+      <th>Actions</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task.content }}</td>
+      <td>{{ task.date_created.date() }}</td>
+      <td>
+        <a href="/update/{{task.id}}">Update</a>
+        <a href="/delete/{{task.id}}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <form action="/" method="POST">
+    <input name="content" type="text" />
+    <button>Add New Task</button>
+  </form>
+</div>
+{% endblock%}

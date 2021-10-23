@@ -1,0 +1,8 @@
+{% extends "base.html" %} {%block title %} Hello World {% endblock%} {%block
+body %}
+
+<form action="/update/{{task.id}}" method="POST">
+  <input value="{{task.content}}" name="content" type="text" />
+  <button>Update Task</button>
+</form>
+{% endblock%}
